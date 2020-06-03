@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Facebook</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav class="nav">
+      <ul class='list'>
+
+        <div class='left'>
+          <li class='navBar'> 
+            <h1> Facebook </h1> 
+          </li>
+        </div>
+
+
+        <div class='right'>
+          <li class='navBar right'> <%= link_to 'Logout', destroy_user_session_path, method: :delete, class:'navBar' %> </li>
+        </div>
+
+      </ul>
+    </nav>
+    <div class='all'>
+    <% if flash[:notice] %>
+      <div class="notification is-primary">
+        <p class="notice"> <%= notice %></p>
+      </div>
+    <% end %>
+
+    <% if flash[:alert] %>
+      <div class="notification is-danger">
+        <p class="alert"> <%= alert %></p>
+      </div>
+    <% end %>
+    <%= yield %>
+    </div>
+  </body>
+</html>
