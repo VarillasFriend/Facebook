@@ -1,9 +1,41 @@
 <p id="notice"><%= notice %></p>
 
+<div class='post show'>
+
+<% if @post.user.username == current_user.username %>
+  <h3 class='name self-name'> You </h3>
+<% else %>
+  <h3 class='name'> <%= @post.user.username %> </h3>
+<% end %>
+
 <p>
-  <strong>Text:</strong>
   <%= @post.text %>
 </p>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<% if current_user.username == @post.user.username %>
+  <%= link_to 'Edit', edit_post_path(@post) %> |
+<% end %>
+<%= link_to 'Back', posts_path %> <br>
+
+<%= @post.likes.count %> 
+
+<% pre_like = @post.likes.find { |like| like.user_id == current_user.id} %>
+<% if pre_like %>
+  <%= link_to post_like_path(@post, pre_like), method: :delete do %>
+    <i class='fa fa-heart' aria-hidden='true'> </i>
+  <% end %>
+<% else %>
+  <%= link_to post_likes_path(@post), method: :post do %>
+    <i class='fa fa-heart-o' aria-hidden='true'> </i>
+  <% end %>
+<% end %>
+
+</div>
+
+<br>
+
+<h3> <%= @post.comments.count %> <%= (@post.comments.count) == 1 ? 'Comment' : 'Comments'%> </h3>
+
+<%= render partial: 'comments/form' %>
+
+<%= render partial: 'posts/comment', collection: @post.comments %>

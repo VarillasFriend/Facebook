@@ -3,10 +3,14 @@
     <h1> Your Friends </h1>
   </div>
 
-  
+
   <div class='index'>
     <h1>Posts</h1>
 
+    <div class='post'>
+      <h3 class='name self-name'> Write A New Post </h3>
+      <%= render 'form1', post: @post %>
+    </div>
     <% @posts.each do |post| %>
       <div class='post'>
         <% if post.user.username == current_user.username %>
@@ -17,13 +21,34 @@
             
         <p class='text'><%= post.text %></p>
             
-        <p>
+        <p class='control'>
 
-          <%= link_to 'Show', post %>
-          <% if post.user.username == current_user.username %>
-            <%= link_to 'Edit', edit_post_path(post) %>
-            <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to post do %>
+            <i class='fa fa-link' aria-hidden='true'> </i>
           <% end %>
+
+          <% if post.user.username == current_user.username %>
+            <%= link_to edit_post_path(post) do %>
+              <i class='fa fa-pencil' aria-hidden='true'> </i>
+            <% end %>
+            <%= link_to post, method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <i class='fa fa-trash' aria-hidden='true'> </i>
+            <% end %>
+          <% end %>
+          
+          <%= post.likes.count %> 
+
+          <% pre_like = post.likes.find { |like| like.user_id == current_user.id} %>
+          <% if pre_like %>
+            <%= link_to post_like_path(post, pre_like), method: :delete do %>
+              <i class='fa fa-heart' aria-hidden='true'> </i>
+            <% end %>
+          <% else %>
+            <%= link_to post_likes_path(post), method: :post do %>
+              <i class='fa fa-heart-o' aria-hidden='true'> </i>
+            <% end %>
+          <% end %>
+          
         </p>
       </div>
     <% end %>
@@ -31,5 +56,15 @@
   <br>
 
   <%= link_to 'New Post', new_post_path %>
+  </div>
+  <div class='follow'>
+    <h1> Who to Follow </h1>
+    <% @users.each do |user| %>
+      <div class='post followers'>
+        <span class='na'><%= user.name %></span> <br>
+        <span class='un'><%= user.username %></span> <br>
+        <span class='em'><%= user.email %></span> <br>
+      </div>
+    <% end %>
   </div>
 </div>

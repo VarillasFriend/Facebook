@@ -7,6 +7,7 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'%>
   </head>
 
   <body>
@@ -15,14 +16,15 @@
 
         <div class='left'>
           <li class='navBar'> 
-            <h1> Facebook </h1> 
+            <h1> <%= link_to 'Facebook', root_path, class:'navBar Facebook' %> </h1> 
           </li>
         </div>
 
-
-        <div class='right'>
-          <li class='navBar right'> <%= link_to 'Logout', destroy_user_session_path, method: :delete, class:'navBar' %> </li>
-        </div>
+        <% if user_signed_in? %>
+          <div class='right'> 
+            <li class='navBar right'> <%= link_to 'Logout', destroy_user_session_path, method: :delete, class:'navBar' %> </li>
+          </div>
+        <% end %>
 
       </ul>
     </nav>

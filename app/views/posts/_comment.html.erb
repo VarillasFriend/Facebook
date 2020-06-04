@@ -1,0 +1,13 @@
+<div class='comment'>
+  <% if comment.user.username == current_user.username %>
+    <h3 class='self-name'> Your Comment </h3>
+  <% else %>
+    <h3> <%= comment.user.username %> </h3>
+  <% end %>
+  <p><%= comment.text %></p>
+  <% if comment.user.username == current_user.username %>
+    <%= link_to [ @post, comment ], method: :delete, data: { confirm: 'Are you sure?' } do %>
+      <i class='fa fa-trash' aria-hidden='true'> </i>
+    <% end %>
+  <% end %>
+</div>

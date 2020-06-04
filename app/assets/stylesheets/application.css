@@ -48,6 +48,18 @@
     cursor: pointer;
 }
 
+.navBar:visited {
+    color: #FFF;
+}
+
+.navBar:hover {
+    background-color: rgb(25, 117, 255);
+}
+
+.Facebook {
+    font-size: 1.7rem;
+}
+
 .left {
     text-align: left;
 }
@@ -86,7 +98,7 @@
 }
 
 .text {
-    font-size: 0.8rem;
+    font-size: 1rem;
 }
 
 .front {
@@ -95,5 +107,130 @@
 }
 
 .friends {
-    width: 33%;
+    width: 30%;
+}
+
+.show {
+    padding-bottom: 1rem;
+    width: 80%;
+}
+
+.comment {
+    margin-bottom: 0.7rem;
+    padding: 0.7rem 0.8rem;
+    width: 30%;
+    border-color: black;
+    border-width: 1px;
+    border-radius: 1rem;
+    box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.2);
+}
+
+.follow {
+    margin-left: 4.5rem;
+    margin-right: 0.5rem;
+    width: 25%;
+}
+
+.followers {
+    padding: 1rem;
+}
+
+.na {
+    font-size: 1rem;
+    font-weight: 800;
+}
+
+.un {
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 0.85rem;
+}
+
+.em {
+    color: rgba(0, 0, 0, 0.5)
+}
+
+#post_text {
+    height: 5rem;
+    width: 20rem;
+    border-color: rgba(0, 0, 0, 0.5);
+    border-width: 1px;
+    border-radius: 0.9rem;
+
+}
+
+.control {
+    font-size: 0.8rem;
+    text-decoration: none;
+}
+
+a:-webkit-any-link {
+    text-decoration: none;
+}
+
+a, a:visited {
+    color: rgba(0, 0, 0, 0.8);
+}
+
+a:hover {
+    background-color: transparent;
+    color: rgb(0, 0, 0);
+}
+
+.fa {
+    size: 1rem;
+    margin-right: 1rem;
+    color: rgb(25, 117, 255);
+}
+
+.fa:hover {
+    color: rgb(0, 0, 0);
+}
+
+.notification {
+    text-align: center;
+}
+
+.log-in {
+    margin-top: 10rem;
+}
+
+.title {
+    color: rgb(25, 117, 255);
+    text-align: center;
+    font-size: 2rem;
+}
+
+label {
+    text-align: center;
+    margin: 1rem 0;
+    font-size: 1rem;
+}
+
+.required, .string, .password, .email {
+    text-align: center;
+    border-radius: 0.5rem;
+    border-width: 1px;
+    border-color: rgba(0, 0, 0, 0.7);
+}
+
+#user_username, #user_password, #user_name, #user_email, #user_password_confirmation {
+    width: 16rem;
+    height: 1.1rem;
+}
+
+.btn {
+    display: block;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.center {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.label {
+    color: red;
 }

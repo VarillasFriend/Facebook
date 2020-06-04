@@ -1,0 +1,10 @@
+<h3>Post a Comment</h3>
+
+<%= simple_form_for [ @post, @comment ] do |f| %>
+  <p>
+    <%= f.input :text %><br/>
+  </p>
+  <p>
+    <%= f.button :submit %>
+  </p>
+<% end %>
