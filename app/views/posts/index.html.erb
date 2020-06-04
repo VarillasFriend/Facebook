@@ -1,8 +1,23 @@
 <div class='front'>
-  <div class='friends'>
+  <div class='profile'>
+    <h1> Your Profile </h1>
+    <div class='post profiles'>
+      <div class='name_and_picture'> 
+        <%= image_tag("example.jpg", :alt => "rss feed", class:'img') %>
+        <span class='prof_name na'><%= current_user.name %></span>
+        <%= link_to 'users/edit' do %>
+          <i class='prof_name fa fa-pencil' aria-hidden='true'> </i> 
+        <% end %>
+      </div> <br> <br>
+      <span class='un'><%= current_user.username %></span> <br>
+      <span class='em'><%= current_user.email %></span> <br>
+      
+    </div> <br>
     <h1> Your Friends </h1>
+    <div class='post'>
+    
+    </div>
   </div>
-
 
   <div class='index'>
     <h1>Posts</h1>
@@ -57,14 +72,17 @@
 
   <%= link_to 'New Post', new_post_path %>
   </div>
+
   <div class='follow'>
     <h1> Who to Follow </h1>
     <% @users.each do |user| %>
-      <div class='post followers'>
-        <span class='na'><%= user.name %></span> <br>
-        <span class='un'><%= user.username %></span> <br>
-        <span class='em'><%= user.email %></span> <br>
-      </div>
+      <% if current_user.username != user.username %>
+        <div class='post followers'>
+          <span class='na'><%= user.name %></span> <br>
+          <span class='un'><%= user.username %></span> <br>
+          <span class='em'><%= user.email %></span> <br>
+        </div>
+      <%end%>
     <% end %>
   </div>
 </div>

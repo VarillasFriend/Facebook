@@ -106,7 +106,7 @@
     width: 100%;
 }
 
-.friends {
+.profile {
     width: 30%;
 }
 
@@ -213,8 +213,8 @@ label {
     border-color: rgba(0, 0, 0, 0.7);
 }
 
-#user_username, #user_password, #user_name, #user_email, #user_password_confirmation {
-    width: 16rem;
+#user_username, #user_password, #user_name, #user_email, #user_password_confirmation, #user_current_password {
+    width: 18rem;
     height: 1.1rem;
 }
 
@@ -233,4 +233,43 @@ label {
 
 .label {
     color: red;
+}
+
+.img {
+    height: 5rem;
+    width: 5rem;
+    border-radius: 100%;
+}
+
+.profiles {
+    padding: 1rem;
+}
+
+.prof_name {
+    margin-top: 2rem;
+    margin-left: 1rem;
+}
+
+.name_and_picture {
+    display: inline-flex;
+    height: 5rem;
+}
+
+.unhappy {
+    text-align: center;
+    font-size: 1rem;
+}
+
+.cancel {
+    text-decoration: underline;
+    color: rgb(25, 117, 255);
+}
+
+.edit {
+    margin-left: 10rem;
+    display: inline-flex;
+}
+
+.element {
+    margin: 0 5rem;
 }
